@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// probably I could do something like this
+// 1. Unneeded component
+// 2. Proxy props
+// 3. Redundant DOM nodes
+const ImageStyled = (props) => (
+    <div>
+        <div></div>
+        <img {...props} />
+    </div>
+  );
+
+//   <ImageStyled onClick={() => console.log('hel')} src={"https://loremflickr.com/150/150?random=1"}/>
+
 const Story = styled.div`
   box-sizing: border-box;
   border-radius: 50%;
