@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Story from "./components/Story";
+import StoryList from "./components/StoryList";
+import "./App.css";
+const it = [...Array(20).keys()];
+const items = it.map(item => ({
+  id: item,
+  url: `https://loremflickr.com/150/150?random=${item}`
+}));
 
 class App extends Component {
+  state = {
+    items
+  };
+  handleClick = i => {
+    const [first, ...rest] = this.state.items;
+    const items = [...rest, first];
+
+    this.setState({
+      items
+    });
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <StoryList items={this.state.items} onClick={this.handleClick} />
       </div>
     );
   }
