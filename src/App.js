@@ -13,8 +13,9 @@ class App extends Component {
     items
   };
   handleClick = i => {
-    const [first, ...rest] = this.state.items;
-    const items = [...rest, first];
+    const toBeMoved = this.state.items[i];
+    const newItems = this.state.items.filter((_, ind) => ind !== i);
+    const items = [...newItems, toBeMoved];
 
     this.setState({
       items
