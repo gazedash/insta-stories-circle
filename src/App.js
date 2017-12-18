@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Story from "./components/Story";
 import StoryList from "./components/StoryList";
 import "./App.css";
-const it = [...Array(20).keys()];
+const it = [...Array(3).keys()];
 const items = it.map(item => ({
   id: item,
   url: `https://loremflickr.com/150/150?random=${item}`

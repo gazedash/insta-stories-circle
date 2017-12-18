@@ -8,12 +8,11 @@ const StoryListWrapper = styled.div`
   grid-auto-columns: 50px;
   grid-auto-flow: column dense;
   overflow: auto;
-  padding: 2px;
 `;
 const StoryList = ({ items = [], onClick = a => {} }) => (
   <StoryListWrapper>
     {items.map((item, i) => (
-      <Story style={{ backgroundImage: `url(${item.url}` }} key={item.id} onClick={() => onClick(i)} />
+      <Story src={item.url} key={item.id} onClick={() => onClick(i)} />
     ))}
   </StoryListWrapper>
 );
