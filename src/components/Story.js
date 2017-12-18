@@ -1,35 +1,25 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const Round = styled.div`
+const Story = styled.div`
   border-radius: 50%;
-`;
-
-const StoryInner = styled.img`
-  height: 51px;
-  width: 51px;
-`.withComponent(Round.withComponent("img"));
-
-const WrapperGradient = styled.div`
-  background: linear-gradient(to bottom, #d82b7e, #f57939);
-  height: 56px;
-  width: 56px;
-  padding: 2px;
-`.withComponent(Round);
-
-const WrapperWhite = styled.div`
   height: 52px;
   width: 52px;
-  padding: 2px;
-  background-color: white;
-`.withComponent(Round);
+  border: 2px solid white;
+  margin: 2px;
 
-const Story = props => (
-  <WrapperGradient>
-    <WrapperWhite>
-      <StoryInner {...props} />
-    </WrapperWhite>
-  </WrapperGradient>
-);
+  :after {
+    content: "\00a0";
+    background: linear-gradient(to bottom, #d82b7e, #f57939);
+    border-radius: 50%;
+    position: sticky;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-top: -4px;
+    margin-left: -4px;
+    z-index: -2;
+  }
+`;
 
 export default Story;

@@ -12,7 +12,11 @@ const StoryListWrapper = styled.div`
 const StoryList = ({ items = [], onClick = a => {} }) => (
   <StoryListWrapper>
     {items.map((item, i) => (
-      <Story src={item.url} key={item.id} onClick={() => onClick(i)} />
+      <Story
+        style={{ backgroundImage: `url(${item.url}` }}
+        key={item.id}
+        onClick={() => onClick(i)}
+      />
     ))}
   </StoryListWrapper>
 );
